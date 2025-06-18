@@ -127,6 +127,41 @@ TabView {
 - 앱 전체를 구성하는 하단 탭 기반 내비게이션
 - 각 화면은 독립된 설계로 구성되어 우수한 모듈화
 - Label()을 텍스트와 아이콘을 함께 구성
+### 5. 'AddRecipeView' 확장 함수 (Extension)
+
+```swift
+extension AddRecipeView {
+    func saveRecipe() {
+        let newRecipe = Recipe(
+            name: name,
+            image: image,
+            description: description,
+            ingredients: ingredients,
+            directions: directions,
+            category: selectedCategory,
+            datePublished: Date().formatted(),
+            url: url
+        )
+        viewModel.addRecipe(recipe: newRecipe)
+    }
+}
+```
+- AddRecipeView의 본문에서 뷰 코드와 분리된 로직을 깔끔하게 관리
+- 사용자의 입력값을 기반으로 새 Recipe 객체 생성
+- RecipeViewModel의 addRecipe() 호출로 상태 반영
+- SwiftUI에서 View 확장을 통한 모듈화, 가독성 향상, 유지보수 용이성을 보여주는 대표 예시
+### 6. '@StateObject'를 통한 최상위 뷰모델 공유
+```swift
+@StateObject var recipeVM = RecipeViewModel()
+
+var body: some View {
+    TabBar()
+        .environmentObject(recipeVM)
+}
+```
+- @StateObject는 뷰모델의 생명 주기(ownership)를 유지하는 책임을 가짐
+- 이 선언 위치가 앱 최상단(ContentView 또는 RecipeSaverApp)이기 때문에 뷰모델은 앱 전체 생명 주기 동안 유지됨
+- environmentObject()를 통해 자식 뷰들에게 자동으로 의존성 주입됨
 ---
 ## 🛠️ 사용 기술 스택
 
