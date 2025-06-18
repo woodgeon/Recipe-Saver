@@ -12,7 +12,7 @@ RecipeSaver는 SwiftUI와 MVVM 아키텍처를 기반으로 구현된 iOS 애플
 ---
 
 ## 프로젝트 구조
-
+```swift
 RecipeSaver/
 ├── Models/                 # 데이터 모델 정의 (Recipe, Category)
 │   └── RecipeModel.swift
@@ -27,6 +27,7 @@ RecipeSaver/
 │
 ├── Assets.xcassets/       # 이미지 및 컬러 리소스
 └── RecipeSaverApp.swift   # 앱 진입점
+```
 ---
 ## ✨ 주요 기능
 
