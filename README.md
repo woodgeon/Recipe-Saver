@@ -14,19 +14,34 @@ RecipeSaver는 SwiftUI와 MVVM 아키텍처를 기반으로 구현된 iOS 애플
 ## 프로젝트 구조
 ```swift
 RecipeSaver/
-├── Models/                 # 데이터 모델 정의 (Recipe, Category)
-│   └── RecipeModel.swift
+├── RecipeSaverApp.swift          # 앱 진입점 (@main), SwiftUI App 구조
 │
-├── ViewModels/            # 비즈니스 로직 및 상태 관리
-│   └── RecipeViewModel.swift
+├── Models/                       # 데이터 모델 정의
+│   └── RecipeModel.swift         # Recipe 구조체 및 Category enum
 │
-├── Views/
-│   ├── Main/              # 홈, 카테고리, 즐겨찾기, 설정 등 메인 UI
-│   ├── Components/        # RecipeCard, RecipeList 등 UI 구성요소
-│   └── Details/           # 레시피 상세 보기 및 추가 입력 화면
+├── ViewModels/                   # 상태 관리 및 로직 처리
+│   └── RecipeViewModel.swift     # 레시피 배열 관리, 레시피 추가 기능
 │
-├── Assets.xcassets/       # 이미지 및 컬러 리소스
-└── RecipeSaverApp.swift   # 앱 진입점
+├── Views/                        # 화면(View) 관련 전체 구성
+│   ├── Components/               # 재사용 가능한 UI 컴포넌트 모음
+│   │   ├── RecipeCard.swift      # 개별 레시피 카드 뷰
+│   │   └── RecipeList.swift      # 레시피 리스트 뷰
+│   │
+│   ├── Details/                  # 상세 화면 및 데이터 입력 뷰
+│   │   ├── AddRecipeView.swift   # 레시피 작성/추가 뷰
+│   │   ├── CategoryView.swift    # 카테고리별 레시피 나열
+│   │   └── RecipeView.swift      # 레시피 상세 페이지
+│   │
+│   └── Main/                     # 메인 구조 및 주요 화면
+│       ├── ContentView.swift     # 앱 루트 뷰, 뷰모델 생성 및 탭 뷰 연결
+│       ├── TabBar.swift          # 하단 탭바 구성
+│       ├── HomeView.swift        # 홈화면 (레시피 리스트)
+│       ├── CategoriesView.swift  # 전체 카테고리 화면
+│       ├── NewRecipeView.swift   # 새 레시피 추가 화면
+│       ├── FavoritesView.swift   # 즐겨찾기 목록
+│       └── SettingsView.swift    # 설정 화면
+│
+├── Assets/                       # 앱 리소스 (이미지, 색상 등)
 ```
 ---
 ## ✨ 주요 기능
