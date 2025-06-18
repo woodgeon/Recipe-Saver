@@ -1,5 +1,7 @@
 # 📱 RecipeSaver
 ---
+시연영상 : https://youtu.be/NAVNzzExWP0
+--- 
 ## 프로젝트 개요
 
 RecipeSaver는 SwiftUI와 MVVM 아키텍처를 기반으로 구현된 iOS 애플리케이션으로,
